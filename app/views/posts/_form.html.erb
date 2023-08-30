@@ -1,0 +1,41 @@
+<%= form_for @post do |form| %>
+<div class="vh-100 d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div>
+      <% if @post.persisted? %>
+        <h1>Editar Post</h1>
+      <% else %>
+        <h1>Nuevo Post</h1>
+      <% end %>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="card bg-white">
+        <div class="card-body p-5">
+        <% @post.errors.full_messages.each do |error| %>
+          <div class="alert alert-danger" role="alert">
+            <%= error %>
+          </div>
+        <% end%>
+          <div class="mb-3">
+            <%= form.label :title, class: 'form-label' %>
+            <%= form.text_field :title, class: 'form-control' %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :content, class: 'form-label' %>
+            <%= form.text_area :content, class: 'form-control custom-textarea' %>
+          </div>
+
+          <div class="mb-3">
+            <% if @post.persisted? %>
+              <%= form.submit "Editar", class: 'btn btn-primary' %>
+            <% else %>
+              <%= form.submit "Crear", class: 'btn btn-primary' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

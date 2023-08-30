@@ -204,6 +204,7 @@ GEM
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     thor (1.2.2)
+    time_ago_in_words (0.1.1)
     timeout (0.4.0)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -248,6 +249,7 @@ DEPENDENCIES
   simple_form (~> 5.2)
   sprockets-rails
   stimulus-rails
+  time_ago_in_words (~> 0.1.1)
   turbo-rails
   tzinfo-data
   web-console

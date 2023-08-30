@@ -76,3 +76,4 @@ end
 
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
 gem 'simple_form', '~> 5.2'
+gem "time_ago_in_words", "~> 0.1.1"

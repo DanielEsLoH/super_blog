@@ -1,2 +1,18 @@
-
-<h1>Estos son los Post</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-md-auto px-md-4">
+      <ul class='post-list'>
+        <% @posts.each do |post| %>
+        <li class="post">
+          <h2><%= link_to post.title, post_path(post) %></h2>
+          <p class="text-secondary" >Publicado por: <%= post.user.email %> hace <%= time_ago_in_words(post.created_at) %> </p>
+          <p><%= truncate(post.content, length: 250) %></p>
+          <% if user_signed_in? && current_user.email == post.user.email %>
+              <%= link_to "Editar", edit_post_path(post) %>
+          <% end %>
+          <li class="post">
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
