@@ -11,6 +11,11 @@ class PostsController < ApplicationController
 
     def edit
         post
+        if post.user.email == current_user.email
+
+        else
+            redirect_to posts_path, alert: "No tienes permisos para editar este post."
+        end
     end
     
     def create
@@ -25,15 +30,29 @@ class PostsController < ApplicationController
     end
 
     def update
-        if post.update(post_params)
-            redirect_to posts_url
+        if post.user.email == current_user.email
+            if post.update(post_params)
+                redirect_to posts_url, notice: "El post ha sido actualizado exitosamente."
+            else
+                render :edit, status: :unprocessable_entity
+            end
         else
-            render :edit, status: :unprocessable_entity
+            redirect_to posts_path, alert: "No tienes permisos para editar este post."
         end
     end
 
     def show
         post
+    end
+
+    def destroy
+        post
+        if post.user.email == current_user.email
+            post.destroy
+            redirect_to posts_path, notice: 'El post ha sido eliminado exitosamente.'
+        else
+            redirect_to posts_path, alert: "No tienes permisos para eliminar este post."
+        end
     end
     
         

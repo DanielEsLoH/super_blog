@@ -9,6 +9,7 @@
           <p><%= truncate(post.content, length: 250) %></p>
           <% if user_signed_in? && current_user.email == post.user.email %>
               <%= link_to "Editar", edit_post_path(post) %>
+              <%= link_to "Eliminar", post_path(post), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro de que deseas eliminar este post?" } %>
           <% end %>
           <li class="post">
         <% end %>
