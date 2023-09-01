@@ -49,9 +49,11 @@ class PostsController < ApplicationController
         post
         if post.user.email == current_user.email
             post.destroy
-            redirect_to posts_path, notice: 'El post ha sido eliminado exitosamente.'
+            flash[:notice] = 'El post ha sido eliminado exitosamente.'
+            redirect_to posts_path
         else
-            redirect_to posts_path, alert: "No tienes permisos para eliminar este post."
+            flash[:notice] = "No tienes permisos para eliminar este post."
+            redirect_to posts_path
         end
     end
     

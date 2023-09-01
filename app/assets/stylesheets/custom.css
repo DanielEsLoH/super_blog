@@ -11,3 +11,28 @@
 .post {
     margin-bottom: 30px;
   }
+
+.centered {
+    text-align: center;
+  }
+
+.spacer-nav{
+    display: inline-block;
+    margin-right: 5%;
+  }
+
+.margin-right-nav{
+  margin-right: 140px; /* Ajusta el valor según el margen deseado */
+}
+
+.margin-left-nav{
+  margin-left: 140px;
+}
+
+.navbarp {
+  white-space: nowrap;
+}
+
+.spacer-index{
+  margin-right: 2%;
+}

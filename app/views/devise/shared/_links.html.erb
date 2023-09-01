@@ -1,9 +1,9 @@
 <%- if controller_name != 'sessions' %>
-  <p class="mb-0  text-center">Do you already have an account?<%= link_to "Log in", new_session_path(resource_name), class: 'text-primary fw-bold' %></p>
+  <p class="mb-0  text-center"><%= t('devise.registrations.new.have_account') %><%= link_to t('devise.registrations.new.login'), new_session_path(resource_name), class: 'text-primary fw-bold' %></p>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <p class="mb-0  text-center">Don't have an account? <%= link_to "Sign up", new_registration_path(resource_name), class: 'text-primary fw-bold' %></p>
+  <p class="mb-0  text-center"><%= t('devise.sessions.new.not_have_account') %><%= link_to t('devise.sessions.new.sign_up'), new_registration_path(resource_name), class: 'text-primary fw-bold' %></p>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

@@ -1,8 +1,30 @@
 es:
+  posts:
+    index:
+      published: "Publicado por:"
+      edit: "Editar"
+      delete: "Eliminar"
+  layouts:
+    application:
+      login: "Ingresar"
+      sign_up: "Registrarse"
+      new_post: "Nuevo post"
+      logout: "Salir"
   devise:
+      registrations:
+        new:
+          title: "Registro"
+          submit: "Registrarte"
+          have_account: "Ya tienes una cuenta? "
+          login: "Iniciar sesión"
       sessions:
         new:
           title: "Iniciar sesion"
+          text: "¡Por favor, introduce tu usuario y contraseña!"
+          password: "¿Olvidaste tu contraseña?"
+          submit: "Iniciar sesión"
+          sign_up: "Crear cuenta nueva"
+          not_have_account: "¿No tienes una cuenta? "
   datetime:
     distance_in_words:
       half_a_minute: "medio minuto"
@@ -44,7 +66,7 @@ es:
   activerecord:
     attributes:
       user:
-        email: "Email"
+        email: "Correo electrónico"
         password: "Contraseña"
       post:
         title: "Título"
@@ -53,6 +75,14 @@ es:
         content: "Nuevo comentario"
     errors:
       models:
+        user:
+          attributes:
+            email:
+              blank: "no puede estar en blanco"
+            password:
+              blank: "no puede estar en blanco"
+            password_confirmation:
+              confirmation: "no coincide"
         post:
           attributes:
             title:

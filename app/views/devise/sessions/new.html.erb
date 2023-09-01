@@ -5,8 +5,8 @@
         <div class="card bg-white">
           <div class="card-body p-5">
             <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'mb-3 mt-md-4'}) do |f| %>
-              <h2 class="fw-bold mb-2 text-uppercase ">t('devise.sessions.new.title')</h2>
-              <p class=" mb-5">Please enter your login and password!</p>
+              <h2 class="fw-bold mb-2 centered "><%= t('devise.sessions.new.title') %></h2>
+              <p class=" mb-5 centered"><%= t('devise.sessions.new.text') %></p>
               <div class="form-inputs">
                 <%= f.input :email,
                             required: false,
@@ -22,11 +22,11 @@
                 <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
               </div>
               <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                <p><%= link_to "Forgot your password?", new_password_path(resource_name), class: 'small text-primary' %></p>
+                <p><%= link_to t('devise.sessions.new.password'), new_password_path(resource_name), class: 'small text-primary' %></p>
               <% end %>
               <div class="form-actions">
                 <div class="d-grid">
-                  <%= f.button :submit, "Log in", class: 'btn btn-outline-dark' %>
+                  <%= f.button :submit, t('devise.sessions.new.submit'), class: 'btn btn-outline-dark' %>
                 </div>
               </div>
             <% end %>
