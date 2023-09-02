@@ -36,3 +36,25 @@
 .spacer-index{
   margin-right: 2%;
 }
+
+/* styles.css */
+
+.custom-alert {
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 18px; /* Tamaño de fuente */
+  background-color: #f0ad4e; /* Color de fondo (personalizado) */
+  color: #fff; /* Color de texto (blanco) */
+  border: 1px solid #eea236; /* Borde (personalizado) */
+  /* Agrega cualquier otro estilo que desees */
+}
+
+.custom-alert.alert-success {
+  background-color: #5bc0de; /* Cambia el fondo para una alerta de éxito */
+  border-color: #46b8da; /* Cambia el borde para una alerta de éxito */
+}
+
+.custom-alert.alert-danger {
+  background-color: #d9534f; /* Cambia el fondo para una alerta de peligro */
+  border-color: #d43f3a; /* Cambia el borde para una alerta de peligro */
+}

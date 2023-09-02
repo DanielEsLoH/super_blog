@@ -30,13 +30,14 @@
       </div>
     </nav>
     <div id="flash-messages">
-      <div class="alert alert-danger">
-        <% flash.each do |key, value| %>
-          <div class="flash-message <%= key %>">
-            <%= value %>
-          </div>
-        <% end %>
-      </div>
+      <% if flash.any? %>
+          <% flash.each do |key, value| %>
+            <% alert_class = key == 'success' ? 'alert-success' : 'alert-danger' %>
+              <div class="alert <%= alert_class %>">
+                <%= value %>
+              </div>
+          <% end %>
+      <% end %>
     </div>
     <%= yield %>
   </body>
