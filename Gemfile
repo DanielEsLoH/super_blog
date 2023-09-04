@@ -79,3 +79,5 @@ gem 'simple_form', '~> 5.2'
 gem "time_ago_in_words", "~> 0.1.1"
 
 gem "devise-i18n", "~> 1.11"
+
+gem "will_paginate", "~> 4.0"

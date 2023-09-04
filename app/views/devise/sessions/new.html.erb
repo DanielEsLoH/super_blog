@@ -5,15 +5,15 @@
         <div class="card bg-white">
           <div class="card-body p-5">
             <% if resource.errors.any? %>
-  <div class="alert alert-danger">
-    <h4>Error:</h4>
-    <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+              <div class="alert alert-success">
+                <h4>Error:</h4>
+                <ul>
+                  <% resource.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
             <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'mb-3 mt-md-4'}) do |f| %>
               <h2 class="fw-bold mb-2 centered "><%= t('devise.sessions.new.title') %></h2>
               <p class=" mb-5 centered"><%= t('devise.sessions.new.text') %></p>

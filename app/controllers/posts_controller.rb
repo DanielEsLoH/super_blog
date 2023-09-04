@@ -2,7 +2,8 @@ class PostsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
 
     def index
-        @posts = Post.order(created_at: :desc)
+        ordered_posts = Post.order(created_at: :desc)
+        @posts = ordered_posts.paginate(page: params[:page], per_page: 10)
     end
 
     def new
@@ -14,17 +15,16 @@ class PostsController < ApplicationController
         if post.user.email == current_user.email
 
         else
-            redirect_to posts_path, alert: "No tienes permisos para editar este post."
+            redirect_to posts_path, alert: t('posts.alert.edit')
         end
     end
     
     def create
         @post = current_user.posts.build(post_params)
         if @post.save
-          flash[:success] = "Object successfully created"
-          redirect_to posts_path
+          redirect_to posts_path, notice: t('posts.notice.create')
         else
-          flash[:error] = "Something went wrong"
+          flash[:alert] = t('posts.alert.went_wrong')
           render 'new', status: :unprocessable_entity
         end
     end
@@ -32,12 +32,13 @@ class PostsController < ApplicationController
     def update
         if post.user.email == current_user.email
             if post.update(post_params)
-                redirect_to posts_url, notice: "El post ha sido actualizado exitosamente."
+                redirect_to posts_url, notice: t('posts.notice.update')
             else
+                flash[:alert] = t('posts.alert.went_wrong')
                 render :edit, status: :unprocessable_entity
             end
         else
-            redirect_to posts_path, alert: "No tienes permisos para editar este post."
+            redirect_to posts_path, alert: t('posts.alert.permission_edit')
         end
     end
 
@@ -49,10 +50,10 @@ class PostsController < ApplicationController
         post
         if post.user.email == current_user.email
             post.destroy
-            flash[:notice] = 'El post ha sido eliminado exitosamente.'
+            flash[:notice] = t('posts.notice.delete')
             redirect_to posts_path
         else
-            flash[:notice] = "No tienes permisos para eliminar este post."
+            flash[:alert] = t('posts.alert.delete')
             redirect_to posts_path
         end
     end

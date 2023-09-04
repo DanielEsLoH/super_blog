@@ -1,0 +1,16 @@
+<nav class="navbar bg-light navbarp">
+    <div class="container-fluid">
+    <a class="navbar-brand text-muted margin-left-nav" href="/">SuperBlog</a>
+    <form class="d-flex">
+        <div class="container-fluid">
+        <% if current_user %>
+            <%= link_to t('layouts.application.new_post'), new_post_path, class: "link-secondary spacer-nav" %>
+            <%= link_to t('layouts.application.logout'), destroy_user_session_path, data: { turbo_method: :delete }, class: "link-secondary margin-right-nav" %>
+        <% else %>
+            <%= link_to t('layouts.application.login'), new_user_session_path, class: "link-secondary spacer-nav" %>
+            <%= link_to t('layouts.application.sign_up'), new_user_registration_path, class: "link-secondary margin-right-nav" %>
+        <% end %>
+        </div>
+    </form>
+    </div>
+</nav>

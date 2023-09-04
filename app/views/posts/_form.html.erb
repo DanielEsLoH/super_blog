@@ -3,9 +3,9 @@
   <div class="container">
     <div>
       <% if @post.persisted? %>
-        <h1>Editar Post</h1>
+        <h1><%= t('posts.form.edit') %></h1>
       <% else %>
-        <h1>Nuevo Post</h1>
+        <h1><%= t('post.form.new') %></h1>
       <% end %>
     </div>
     <div class="row d-flex justify-content-center">

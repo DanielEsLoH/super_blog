@@ -1,5 +1,23 @@
 es:
   posts:
+    alert:
+      edit: "No tienes permisos para editar este post."
+      went_wrong: "Algo salió mal"
+      permission_edit: "No tienes permisos para editar este post."
+      delete: "No tienes permisos para eliminar este post."
+    notice:
+      create: "Post creado correctamente"
+      update: "El post ha sido actualizado exitosamente."
+      delete: "El post ha sido eliminado exitosamente."
+    form:
+      new: "Nuevo post"
+      edit: "Editar post"
+    show:
+      back_to_list: "Volver"
+      published: "Publicado el "
+      for: "por"
+      for_comment: "Inicia sesión para dejar un comentario"
+      comment: "comentó hace"
     index:
       published: "Publicado por:"
       edit: "Editar"
@@ -62,7 +80,7 @@ es:
         one: "casi 1 año"
         other: "casi %{count} años"
   post:
-    back_to_list: "Volver"
+    
   activerecord:
     attributes:
       user:
@@ -78,6 +96,7 @@ es:
         user:
           attributes:
             email:
+              taken: "en uso"
               blank: "no puede estar en blanco"
             password:
               blank: "no puede estar en blanco"
