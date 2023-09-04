@@ -6,7 +6,7 @@
         <li class="post">
           <h2><%= link_to post.title, post_path(post) %></h2>
           <p class="text-secondary" ><%= t('posts.index.published') %> <%= post.user.email %> hace <%= time_ago_in_words(post.created_at) %> </p>
-          <p class="p-index"><%= truncate(post.content, length: 250) %></p>
+          <p class="p-index"><%= truncate(markdown(post.content), length: 250, escape: false) %></p>
           <% if user_signed_in? && current_user.email == post.user.email %>
               <%= link_to edit_post_path(post), class: 'spacer-index' do %>
                 <i class="fas fa-edit"></i> <%= t('posts.index.edit') %>

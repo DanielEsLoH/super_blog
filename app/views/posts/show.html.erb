@@ -13,7 +13,7 @@
 
       <!-- Post content-->
       <section class="mb-5">
-        <p class="fs-5 mb-4"> <%= @post.content %> </p>
+        <p class="fs-5 mb-4"> <%= markdown(@post.content) %> </p>
       </section>
     </article>
       <!-- Comments section-->
